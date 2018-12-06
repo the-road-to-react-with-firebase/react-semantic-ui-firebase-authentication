@@ -11,7 +11,7 @@
   * only React (create-react-app)
   * firebase 5
   * react-router 4
-  * semantic UI
+  * **semantic UI**
   * no Redux/MobX
     * [Redux Version](https://github.com/taming-the-state-in-react/react-redux-firebase-authentication)
     * [MobX Version](https://github.com/taming-the-state-in-react/react-mobx-firebase-authentication)
