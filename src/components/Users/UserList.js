@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
+import { Header, Loader, Table, Button } from 'semantic-ui-react'
+
 class UserList extends Component {
   constructor(props) {
     super(props);
@@ -41,33 +43,32 @@ class UserList extends Component {
 
     return (
       <div>
-        <h2>Users</h2>
-        {loading && <div>Loading ...</div>}
-        <ul>
-          {users.map(user => (
-            <li key={user.uid}>
-              <span>
-                <strong>ID:</strong> {user.uid}
-              </span>
-              <span>
-                <strong>E-Mail:</strong> {user.email}
-              </span>
-              <span>
-                <strong>Username:</strong> {user.username}
-              </span>
-              <span>
-                <Link
-                  to={{
+        <Header as='h2'>Users</Header>
+        {loading ? <Loader active inline /> : <Table singleLine>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>ID</Table.HeaderCell>
+              <Table.HeaderCell>Username</Table.HeaderCell>
+              <Table.HeaderCell>Email Address</Table.HeaderCell>
+              <Table.HeaderCell>Actions</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            {users.map((user, i) => (
+              <Table.Row key={i}>
+                <Table.Cell>{user.uid}</Table.Cell>
+                <Table.Cell>{user.username}</Table.Cell>
+                <Table.Cell>{user.email}</Table.Cell>
+                <Table.Cell>
+                  <Button primary as={Link} to={{
                     pathname: `${ROUTES.ADMIN}/${user.uid}`,
                     state: { user },
-                  }}
-                >
-                  Details
-                </Link>
-              </span>
-            </li>
-          ))}
-        </ul>
+                  }}>Details</Button>
+                </Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>}
       </div>
     );
   }

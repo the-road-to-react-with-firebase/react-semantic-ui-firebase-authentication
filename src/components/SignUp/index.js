@@ -4,12 +4,15 @@ import { Link, withRouter } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
+import {Form, Button, Grid, Header, Message, Checkbox } from 'semantic-ui-react';
 
 const SignUpPage = () => (
-  <div>
-    <h1>SignUp</h1>
-    <SignUpForm />
-  </div>
+  <Grid centered columns={2}>
+    <Grid.Column>
+      <Header as='h2' textAlign='center'>Sign Up</Header>
+      <SignUpForm />
+    </Grid.Column>
+  </Grid>
 );
 
 const INITIAL_STATE = {
@@ -78,8 +81,8 @@ class SignUpFormBase extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  onChangeCheckbox = event => {
-    this.setState({ [event.target.name]: event.target.checked });
+  onChangeCheckbox = () => {
+    this.setState({ isAdmin: !this.state.isAdmin });
   };
 
   render() {
@@ -99,50 +102,59 @@ class SignUpFormBase extends Component {
       username === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="username"
-          value={username}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Full Name"
-        />
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="passwordOne"
-          value={passwordOne}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <input
-          name="passwordTwo"
-          value={passwordTwo}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Confirm Password"
-        />
-        <label>
-          Admin:
-          <input
-            name="isAdmin"
-            type="checkbox"
-            checked={isAdmin}
-            onChange={this.onChangeCheckbox}
-          />
-        </label>
-        <button disabled={isInvalid} type="submit">
-          Sign Up
-        </button>
-
-        {error && <p>{error.message}</p>}
-      </form>
+      <div>
+        {error && <Message negative>
+          <p>{error.message}</p>
+        </Message>}
+        <Form onSubmit={this.onSubmit}>
+          <Form.Field>
+            <label>Username</label>
+            <input
+              name="username"
+              value={username}
+              onChange={this.onChange}
+              type="text"
+              placeholder="Full Name"
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Email</label>
+            <input
+              name="email"
+              value={email}
+              onChange={this.onChange}
+              type="text"
+              placeholder="Email Address"
+            />
+          </Form.Field>
+          <Form.Group widths='equal'>
+            <Form.Field>
+              <label>Password</label>
+              <input
+                name="passwordOne"
+                value={passwordOne}
+                onChange={this.onChange}
+                type="password"
+                placeholder="Password"
+              />
+            </Form.Field>
+            <Form.Field>
+              <label>Confirm Password</label>
+              <input
+                name="passwordTwo"
+                value={passwordTwo}
+                onChange={this.onChange}
+                type="password"
+                placeholder="Confirm Password"
+              />
+            </Form.Field>
+          </Form.Group>
+          <Form.Field>
+            <Checkbox label='Admin' name='isAdmin' onChange={this.onChangeCheckbox} checked={isAdmin} />
+          </Form.Field>
+          <Button primary disabled={isInvalid} type="submit">Sign Up</Button>
+        </Form>
+      </div>
     );
   }
 }
