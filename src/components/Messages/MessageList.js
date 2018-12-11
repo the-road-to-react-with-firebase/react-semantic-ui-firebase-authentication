@@ -2,12 +2,14 @@ import React from 'react';
 
 import MessageItem from './MessageItem';
 
+import { Feed } from 'semantic-ui-react'
+
 const MessageList = ({
   messages,
   onEditMessage,
   onRemoveMessage,
 }) => (
-  <ul>
+  <Feed>
     {messages.map(message => (
       <MessageItem
         key={message.uid}
@@ -16,7 +18,7 @@ const MessageList = ({
         onRemoveMessage={onRemoveMessage}
       />
     ))}
-  </ul>
+  </Feed>
 );
 
 export default MessageList;

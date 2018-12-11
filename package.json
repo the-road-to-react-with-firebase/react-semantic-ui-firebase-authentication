@@ -1,14 +1,16 @@
 {
-  "name": "react-semantic-ui-firebase-authentication",
+  "name": "react-firebase-authentication",
   "version": "0.2.0",
   "private": true,
   "dependencies": {
+    "epoch-timeago": "^1.1.9",
     "firebase": "^5.6.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
-    "recompose": "^0.30.0"
+    "recompose": "^0.30.0",
+    "semantic-ui-react": "^0.83.0"
   },
   "scripts": {
     "start": "react-scripts start",
