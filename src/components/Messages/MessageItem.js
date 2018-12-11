@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import timeago from 'epoch-timeago';
+import { distanceInWordsToNow } from 'date-fns'
 import { Link } from 'react-router-dom';
 import { Feed, Icon, Form } from 'semantic-ui-react';
 
 export const TimeAgo = ({ time }) => (
-  <time dateTime={new Date(time).toISOString()}>{timeago(time)}</time>
+  <time>{distanceInWordsToNow(time)} ago</time>
 )
 
 
@@ -69,12 +69,13 @@ class MessageItem extends Component {
                 <Icon bordered size='large' color='green' name='save outline' onClick={this.onSaveEditText} />
                 <Icon bordered size='large' color='blue' name='undo alternate' onClick={this.onToggleEditMode} />
               </span>
-            ) : (
-                <Icon bordered size='large' color='blue' name='edit outline' onClick={this.onToggleEditMode} />
-            )}
+            ) : null}
 
             {!editMode && (
-              <Icon bordered size='large' color='red' name='trash alternate' onClick={() => onRemoveMessage(message.uid)} />
+              <span>
+                <Icon bordered size='large' color='blue' name='edit outline' onClick={this.onToggleEditMode} />
+                <Icon bordered size='large' color='red' name='trash alternate' onClick={() => onRemoveMessage(message.uid)} />
+              </span>
             )}
           </Feed.Meta>
         </Feed.Content>

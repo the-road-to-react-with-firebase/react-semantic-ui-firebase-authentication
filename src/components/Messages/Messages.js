@@ -98,6 +98,10 @@ class Messages extends Component {
               <Card.Description>
                 {loading && <Loader active inline='centered' />}
 
+                {!loading && messages && (
+                  <Button size='small' floated='right' positive type="button" onClick={this.onNextPage}>Older Messages</Button>
+                )}
+
                 {messages && (<MessageList
                     messages={messages.map(message => ({
                       ...message,
@@ -116,9 +120,6 @@ class Messages extends Component {
                 {!loading && <Form onSubmit={event => this.onCreateMessage(event, authUser)}>
                   <Form.TextArea value={text} onChange={this.onChangeText} placeholder='Enter your message here...' />
                   <Button primary type='submit'>Send  <Icon name='send' /></Button>
-                  {!loading && messages && (
-                    <Button positive type="button" onClick={this.onNextPage}>More</Button>
-                  )}
                 </Form>}
               </Card.Description>
             </Card.Content>

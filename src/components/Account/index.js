@@ -224,13 +224,12 @@ class DefaultLoginToggle extends Component {
       passwordOne !== passwordTwo || passwordOne === '';
 
     return isEnabled ? (
-      <Button
-        type="button"
-        onClick={() => onUnlink(signInMethod.id)}
-        disabled={onlyOneLeft}
-      >
-        Deactivate {signInMethod.id}
-      </Button>
+      <span>
+        <Button type="button" onClick={() => onUnlink(signInMethod.id)} disabled={onlyOneLeft}>
+          Deactivate {signInMethod.id}
+        </Button>
+        <br />
+      </span>
     ) : (
       <Form onSubmit={this.onSubmit}>
         <Form.Group widths='equal'>
