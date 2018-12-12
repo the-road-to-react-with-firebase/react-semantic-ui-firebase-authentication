@@ -5,16 +5,21 @@
 * [Tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/)
 * [Live Version of half of the Tutorial](https://react-semantic-ui-firebase-authentication.wieruch.com/)
 
+## Variations
+
+* [Only React Version](https://github.com/the-road-to-react-with-firebase/react-firebase-authentication)
+* [Redux Version](https://github.com/the-road-to-react-with-firebase/react-redux-firebase-authentication)
+* [MobX Version](https://github.com/the-road-to-react-with-firebase/react-mobx-firebase-authentication)
+* [Gatsby Version](https://github.com/the-road-to-react-with-firebase/react-gatsby-firebase-authentication)
+* [Firestore Version](https://github.com/the-road-to-react-with-firebase/react-firestore-authentication)
+
 ## Features
 
 * uses:
   * only React (create-react-app)
-  * firebase 5
-  * react-router 4
+  * firebase
+  * react-router
   * **semantic UI**
-  * no Redux/MobX
-    * [Redux Version](https://github.com/taming-the-state-in-react/react-redux-firebase-authentication)
-    * [MobX Version](https://github.com/taming-the-state-in-react/react-mobx-firebase-authentication)
 * features:
   * Sign In
   * Sign Up
