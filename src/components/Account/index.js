@@ -10,7 +10,14 @@ import { withFirebase } from '../Firebase';
 import { PasswordForgetForm } from '../PasswordForget';
 import PasswordChangeForm from '../PasswordChange';
 
-import {Grid, Card, Header, Message, Form, Button } from 'semantic-ui-react'
+import {
+  Grid,
+  Card,
+  Header,
+  Message,
+  Form,
+  Button,
+} from 'semantic-ui-react';
 
 const SIGN_IN_METHODS = [
   {
@@ -35,7 +42,7 @@ const AccountPage = () => (
   <AuthUserContext.Consumer>
     {authUser => (
       <div>
-        <Header as='h2'>Account: {authUser.email}</Header>
+        <Header as="h2">Account: {authUser.email}</Header>
         <Grid columns={2}>
           <Grid.Column>
             <Card fluid={true}>
@@ -121,9 +128,11 @@ class LoginManagementBase extends Component {
         <Card.Content>
           <Card.Header>Sign In Methods</Card.Header>
           <Card.Description>
-            {error && <Message negative>
-              <p>{error.message}</p>
-            </Message>}
+            {error && (
+              <Message negative>
+                <p>{error.message}</p>
+              </Message>
+            )}
             <div>
               {SIGN_IN_METHODS.map(signInMethod => {
                 const onlyOneLeft = activeSignInMethods.length === 1;
@@ -175,7 +184,15 @@ const SocialLoginToggle = ({
 }) =>
   isEnabled ? (
     <Button
-      color={signInMethod.id === 'google.com' ? 'google plus' : signInMethod.id === 'facebook.com' ? 'facebook' : signInMethod.id === 'twitter.com' ? 'twitter' : ''}
+      color={
+        signInMethod.id === 'google.com'
+          ? 'google plus'
+          : signInMethod.id === 'facebook.com'
+          ? 'facebook'
+          : signInMethod.id === 'twitter.com'
+          ? 'twitter'
+          : ''
+      }
       type="button"
       onClick={() => onUnlink(signInMethod.id)}
       disabled={onlyOneLeft}
@@ -184,7 +201,15 @@ const SocialLoginToggle = ({
     </Button>
   ) : (
     <Button
-      color={signInMethod.id === 'google.com' ? 'google plus' : signInMethod.id === 'facebook.com' ? 'facebook' : signInMethod.id === 'twitter.com' ? 'twitter' : ''}
+      color={
+        signInMethod.id === 'google.com'
+          ? 'google plus'
+          : signInMethod.id === 'facebook.com'
+          ? 'facebook'
+          : signInMethod.id === 'twitter.com'
+          ? 'twitter'
+          : ''
+      }
       type="button"
       onClick={() => onLink(signInMethod.provider)}
     >
@@ -225,14 +250,18 @@ class DefaultLoginToggle extends Component {
 
     return isEnabled ? (
       <span>
-        <Button type="button" onClick={() => onUnlink(signInMethod.id)} disabled={onlyOneLeft}>
+        <Button
+          type="button"
+          onClick={() => onUnlink(signInMethod.id)}
+          disabled={onlyOneLeft}
+        >
           Deactivate {signInMethod.id}
         </Button>
         <br />
       </span>
     ) : (
       <Form onSubmit={this.onSubmit}>
-        <Form.Group widths='equal'>
+        <Form.Group widths="equal">
           <Form.Field>
             <label>New Password</label>
             <input

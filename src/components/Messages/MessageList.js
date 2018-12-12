@@ -2,7 +2,7 @@ import React from 'react';
 
 import MessageItem from './MessageItem';
 
-import { Feed } from 'semantic-ui-react'
+import { Feed } from 'semantic-ui-react';
 
 const MessageList = ({
   messages,

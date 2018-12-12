@@ -44,29 +44,33 @@ class UserItem extends Component {
 
     return (
       <Card fluid={true}>
-        {loading ? <Loader active inline='centered' /> : <Card.Content>
-          <Card.Header>User: {user.uid}</Card.Header>
-          <Card.Description>
-            {user && (
-              <div>
-                <Card.Content>
-                  <Card.Meta>
-                    <span>Username: {user.username}</span>
-                  </Card.Meta>
-                  <Card.Description>{user.email}</Card.Description>
-                  <br />
-                  <Button
-                    primary
-                    type="button"
-                    onClick={this.onSendPasswordResetEmail}
-                  >
-                    Send Password Reset
-                  </Button>
-                </Card.Content>
-              </div>
-            )}
-          </Card.Description>
-        </Card.Content>}
+        {loading ? (
+          <Loader active inline="centered" />
+        ) : (
+          <Card.Content>
+            <Card.Header>User: {user.uid}</Card.Header>
+            <Card.Description>
+              {user && (
+                <div>
+                  <Card.Content>
+                    <Card.Meta>
+                      <span>Username: {user.username}</span>
+                    </Card.Meta>
+                    <Card.Description>{user.email}</Card.Description>
+                    <br />
+                    <Button
+                      primary
+                      type="button"
+                      onClick={this.onSendPasswordResetEmail}
+                    >
+                      Send Password Reset
+                    </Button>
+                  </Card.Content>
+                </div>
+              )}
+            </Card.Description>
+          </Card.Content>
+        )}
       </Card>
     );
   }

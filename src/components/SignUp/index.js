@@ -4,12 +4,21 @@ import { Link, withRouter } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
-import {Form, Button, Grid, Header, Message, Checkbox } from 'semantic-ui-react';
+import {
+  Form,
+  Button,
+  Grid,
+  Header,
+  Message,
+  Checkbox,
+} from 'semantic-ui-react';
 
 const SignUpPage = () => (
   <Grid centered columns={2}>
     <Grid.Column>
-      <Header as='h2' textAlign='center'>Sign Up</Header>
+      <Header as="h2" textAlign="center">
+        Sign Up
+      </Header>
       <SignUpForm />
     </Grid.Column>
   </Grid>
@@ -103,9 +112,11 @@ class SignUpFormBase extends Component {
 
     return (
       <div>
-        {error && <Message negative>
-          <p>{error.message}</p>
-        </Message>}
+        {error && (
+          <Message negative>
+            <p>{error.message}</p>
+          </Message>
+        )}
         <Form onSubmit={this.onSubmit}>
           <Form.Field>
             <label>Username</label>
@@ -127,7 +138,7 @@ class SignUpFormBase extends Component {
               placeholder="Email Address"
             />
           </Form.Field>
-          <Form.Group widths='equal'>
+          <Form.Group widths="equal">
             <Form.Field>
               <label>Password</label>
               <input
@@ -150,9 +161,16 @@ class SignUpFormBase extends Component {
             </Form.Field>
           </Form.Group>
           <Form.Field>
-            <Checkbox label='Admin' name='isAdmin' onChange={this.onChangeCheckbox} checked={isAdmin} />
+            <Checkbox
+              label="Admin"
+              name="isAdmin"
+              onChange={this.onChangeCheckbox}
+              checked={isAdmin}
+            />
           </Form.Field>
-          <Button primary disabled={isInvalid} type="submit">Sign Up</Button>
+          <Button primary disabled={isInvalid} type="submit">
+            Sign Up
+          </Button>
         </Form>
       </div>
     );
