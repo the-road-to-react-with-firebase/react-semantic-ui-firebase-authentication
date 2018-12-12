@@ -7,12 +7,22 @@ import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
-import { Grid, Form, Button, Header, Icon, Message, Divider } from 'semantic-ui-react';
+import {
+  Grid,
+  Form,
+  Button,
+  Header,
+  Icon,
+  Message,
+  Divider,
+} from 'semantic-ui-react';
 
 const SignInPage = () => (
   <Grid centered columns={2}>
     <Grid.Column>
-      <Header as='h2' textAlign='center'>Sign In</Header>
+      <Header as="h2" textAlign="center">
+        Sign In
+      </Header>
       <SignInForm />
       <SignInGoogle />
       <SignInFacebook />
@@ -72,9 +82,11 @@ class SignInFormBase extends Component {
 
     return (
       <div>
-        {error && <Message negative>
-          <p>{error.message}</p>
-        </Message>}
+        {error && (
+          <Message negative>
+            <p>{error.message}</p>
+          </Message>
+        )}
         <Form onSubmit={this.onSubmit}>
           <Form.Field>
             <label>Email</label>
@@ -96,7 +108,9 @@ class SignInFormBase extends Component {
               placeholder="Password"
             />
           </Form.Field>
-          <Button primary disabled={isInvalid} type='submit'>Submit</Button>
+          <Button primary disabled={isInvalid} type="submit">
+            Submit
+          </Button>
           <PasswordForgetLink />
           <Divider horizontal>Or sign in with</Divider>
         </Form>
@@ -142,14 +156,16 @@ class SignInGoogleBase extends Component {
     const { error } = this.state;
 
     return (
-      <form onSubmit={this.onSubmit} className='inline'>
-        <Button color='google plus' type="submit">
-          <Icon name='google' /> Google
+      <form onSubmit={this.onSubmit} className="inline">
+        <Button color="google plus" type="submit">
+          <Icon name="google" /> Google
         </Button>
 
-        {error && <Message negative>
-          <p>{error.message}</p>
-        </Message>}
+        {error && (
+          <Message negative>
+            <p>{error.message}</p>
+          </Message>
+        )}
       </form>
     );
   }
@@ -192,14 +208,16 @@ class SignInFacebookBase extends Component {
     const { error } = this.state;
 
     return (
-      <form onSubmit={this.onSubmit} className='inline'>
-        <Button color='facebook' type="submit">
-          <Icon name='facebook' /> Facebook
+      <form onSubmit={this.onSubmit} className="inline">
+        <Button color="facebook" type="submit">
+          <Icon name="facebook" /> Facebook
         </Button>
 
-        {error && <Message negative>
-          <p>{error.message}</p>
-        </Message>}
+        {error && (
+          <Message negative>
+            <p>{error.message}</p>
+          </Message>
+        )}
       </form>
     );
   }
@@ -242,14 +260,16 @@ class SignInTwitterBase extends Component {
     const { error } = this.state;
 
     return (
-      <form onSubmit={this.onSubmit} className='inline'>
-        <Button color='twitter' type="submit">
-          <Icon name='twitter' /> Twitter
+      <form onSubmit={this.onSubmit} className="inline">
+        <Button color="twitter" type="submit">
+          <Icon name="twitter" /> Twitter
         </Button>
 
-        {error && <Message negative>
-          <p>{error.message}</p>
-        </Message>}
+        {error && (
+          <Message negative>
+            <p>{error.message}</p>
+          </Message>
+        )}
       </form>
     );
   }

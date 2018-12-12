@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { withFirebase } from '../Firebase';
 
-import { Form, Message, Button } from 'semantic-ui-react'
+import { Form, Message, Button } from 'semantic-ui-react';
 
 const INITIAL_STATE = {
   passwordOne: '',
@@ -44,10 +44,12 @@ class PasswordChangeForm extends Component {
 
     return (
       <Form onSubmit={this.onSubmit}>
-        {error && <Message negative>
-          <p>{error.message}</p>
-        </Message>}
-        <Form.Group widths='equal'>
+        {error && (
+          <Message negative>
+            <p>{error.message}</p>
+          </Message>
+        )}
+        <Form.Group widths="equal">
           <Form.Field>
             <label>Old Password</label>
             <input

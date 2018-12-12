@@ -4,12 +4,20 @@ import { Link } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
-import {Grid, Form, Header, Button, Message} from 'semantic-ui-react'
+import {
+  Grid,
+  Form,
+  Header,
+  Button,
+  Message,
+} from 'semantic-ui-react';
 
 const PasswordForgetPage = () => (
   <Grid centered columns={2}>
     <Grid.Column>
-      <Header as='h2' textAlign='center'>Password Forget</Header>
+      <Header as="h2" textAlign="center">
+        Password Forget
+      </Header>
       <PasswordForgetForm />
     </Grid.Column>
   </Grid>
@@ -53,9 +61,11 @@ class PasswordForgetFormBase extends Component {
 
     return (
       <div>
-        {error && <Message negative>
-          <p>{error.message}</p>
-        </Message>}
+        {error && (
+          <Message negative>
+            <p>{error.message}</p>
+          </Message>
+        )}
         <Form onSubmit={this.onSubmit}>
           <Form.Field>
             <label>Email</label>
