@@ -5,6 +5,10 @@
 * [Tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/)
 * [Live Version of half of the Tutorial](https://react-semantic-ui-firebase-authentication.wieruch.com/)
 
+Related:
+
+* [Semantic UI with React Tutorial](https://www.robinwieruch.de/react-semantic-ui-tutorial/)
+
 ## Variations
 
 * [Only React Version](https://github.com/the-road-to-react-with-firebase/react-firebase-authentication)
