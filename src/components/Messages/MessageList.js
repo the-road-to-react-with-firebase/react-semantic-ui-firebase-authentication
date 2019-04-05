@@ -5,6 +5,7 @@ import MessageItem from './MessageItem';
 import { Feed } from 'semantic-ui-react';
 
 const MessageList = ({
+  authUser,
   messages,
   onEditMessage,
   onRemoveMessage,
@@ -12,6 +13,7 @@ const MessageList = ({
   <Feed>
     {messages.map(message => (
       <MessageItem
+        authUser={authUser}
         key={message.uid}
         message={message}
         onEditMessage={onEditMessage}

@@ -76,8 +76,10 @@ class Messages extends Component {
   };
 
   onEditMessage = (message, text) => {
+    const { uid, ...messageSnapshot } = message;
+
     this.props.firebase.message(message.uid).set({
-      ...message,
+      ...messageSnapshot,
       text,
       editedAt: this.props.firebase.serverValue.TIMESTAMP,
     });
@@ -95,8 +97,8 @@ class Messages extends Component {
   };
 
   render() {
-    const { users } = this.props;
     const { text, messages, loading } = this.state;
+
     return (
       <AuthUserContext.Consumer>
         {authUser => (
@@ -118,12 +120,8 @@ class Messages extends Component {
 
                 {messages && (
                   <MessageList
-                    messages={messages.map(message => ({
-                      ...message,
-                      user: users
-                        ? users[message.userId]
-                        : { userId: message.userId },
-                    }))}
+                    authUser={authUser}
+                    messages={messages}
                     onEditMessage={this.onEditMessage}
                     onRemoveMessage={this.onRemoveMessage}
                   />

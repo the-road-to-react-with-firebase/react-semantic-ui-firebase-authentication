@@ -134,7 +134,7 @@ class SignInGoogleBase extends Component {
         return this.props.firebase.user(socialAuthUser.user.uid).set({
           username: socialAuthUser.user.displayName,
           email: socialAuthUser.user.email,
-          roles: [],
+          roles: {},
         });
       })
       .then(() => {
@@ -186,7 +186,7 @@ class SignInFacebookBase extends Component {
         return this.props.firebase.user(socialAuthUser.user.uid).set({
           username: socialAuthUser.additionalUserInfo.profile.name,
           email: socialAuthUser.additionalUserInfo.profile.email,
-          roles: [],
+          roles: {},
         });
       })
       .then(() => {
@@ -238,7 +238,7 @@ class SignInTwitterBase extends Component {
         return this.props.firebase.user(socialAuthUser.user.uid).set({
           username: socialAuthUser.additionalUserInfo.profile.name,
           email: socialAuthUser.additionalUserInfo.profile.email,
-          roles: [],
+          roles: {},
         });
       })
       .then(() => {

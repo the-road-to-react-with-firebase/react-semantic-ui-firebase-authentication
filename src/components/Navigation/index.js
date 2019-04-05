@@ -26,7 +26,7 @@ const NavigationAuth = ({ authUser }) => (
       <Menu.Item name="Landing" as={Link} to={ROUTES.LANDING} />
       <Menu.Item name="home" as={Link} to={ROUTES.HOME} />
       <Menu.Item name="Account" as={Link} to={ROUTES.ACCOUNT} />
-      {authUser.roles.includes(ROLES.ADMIN) && (
+      {!!authUser.roles[ROLES.ADMIN] && (
         <Menu.Item name="Admin" as={Link} to={ROUTES.ADMIN} />
       )}
       <SignOutButton />
