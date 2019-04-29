@@ -3,6 +3,8 @@ import React from 'react';
 import AuthUserContext from './context';
 import { withFirebase } from '../Firebase';
 
+import { Button } from 'semantic-ui-react'
+
 const needsEmailVerification = authUser =>
   authUser &&
   !authUser.emailVerified &&
@@ -32,25 +34,25 @@ const withEmailVerification = Component => {
               <div>
                 {this.state.isSent ? (
                   <p>
-                    E-Mail confirmation sent: Check you E-Mails (Spam
+                    E-Mail confirmation sent: Check your E-Mails (Spam
                     folder included) for a confirmation E-Mail.
-                    Refresh this page once you confirmed your E-Mail.
+                    Refresh this page once you have confirmed your E-Mail.
                   </p>
                 ) : (
                   <p>
-                    Verify your E-Mail: Check you E-Mails (Spam folder
+                    Verify your E-Mail: Check your E-Mails (Spam folder
                     included) for a confirmation E-Mail or send
                     another confirmation E-Mail.
                   </p>
                 )}
 
-                <button
+                <Button
                   type="button"
                   onClick={this.onSendEmailVerification}
                   disabled={this.state.isSent}
                 >
                   Send confirmation E-Mail
-                </button>
+                </Button>
               </div>
             ) : (
               <Component {...this.props} />
