@@ -3,7 +3,6 @@
 [![Build Status](https://travis-ci.org/the-road-to-react-with-firebase/react-semantic-ui-firebase-authentication.svg?branch=master)](https://travis-ci.org/the-road-to-react-with-firebase/react-semantic-ui-firebase-authentication) [![Slack](https://slack-the-road-to-learn-react.wieruch.com/badge.svg)](https://slack-the-road-to-learn-react.wieruch.com/) [![Greenkeeper badge](https://badges.greenkeeper.io/the-road-to-react-with-firebase/react-semantic-ui-firebase-authentication.svg)](https://greenkeeper.io/)
 
 * [Tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/)
-* [Live Version of half of the Tutorial](https://react-semantic-ui-firebase-authentication.wieruch.com/)
 
 Related:
 
